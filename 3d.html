@@ -1,0 +1,184 @@
+<!-- 
+<script type="module" src="https://unpkg.com/@google/model-viewer"></script>
+
+<model-viewer src="chair.glb" 
+              ar 
+              auto-rotate 
+              camera-controls 
+              style="width: 100%; height: 500px;">
+</model-viewer>
+-->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Sculpture Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ece9e6, #ffffff);
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 90%;
+            width: 600px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .viewer {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>3D Sculpture Viewer</h1>
+        <div class="viewer">
+            <model-viewer src="chair.glb" 
+                          ar 
+                          auto-rotate 
+                          camera-controls 
+                          style="width: 100%; height: 100%;">
+            </model-viewer>
+        </div>
+    </div>
+
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Sculpture Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ece9e6, #ffffff);
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 90%;
+            width: 600px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .viewer {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .controls {
+            margin-top: 15px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>3D Sculpture Viewer</h1>
+        <div class="viewer">
+            <model-viewer id="sculptureViewer" 
+                          src="chair.glb" 
+                          ar 
+                          auto-rotate 
+                          camera-controls 
+                          style="width: 100%; height: 100%;">
+            </model-viewer>
+        </div>
+
+        <div class="controls">
+            <button onclick="toggleRotation()">Toggle Rotation</button>
+            <button onclick="resetView()">Reset View</button>
+            <button onclick="enterAR()">View in AR</button>
+            <button onclick="toggleFullscreen()">Fullscreen</button>
+        </div>
+    </div>
+
+    <script>
+        const modelViewer = document.getElementById("sculptureViewer");
+
+        function toggleRotation() {
+            modelViewer.autoRotate = !modelViewer.autoRotate;
+        }
+
+        function resetView() {
+            modelViewer.cameraOrbit = "0deg 75deg 2.5m"; // Adjust to match your default view
+        }
+
+        function enterAR() {
+            modelViewer.activateAR();
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                modelViewer.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+
+</body>
+</html>
